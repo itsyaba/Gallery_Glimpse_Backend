@@ -26,24 +26,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-// if (process.env.NODE_ENV === "production") {
-//   const __dirname = path.resolve();
-//   console.log("PRODUCTION");
-//   app.use("/uploads", express.static("/var/data/uploads"));
-//   app.use(express.static(path.join(__dirname, "/client/dist")));
-
-//   app.get("*", (req, res) =>
-//     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
-//   );
-// } else {
-//   console.log("DEVELOPMENT");
-//   app.get("/", (req, res) => {
-//     res.send("API is running....");
-//   });
-// }
-
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://gallery-glimpse-web.vercel.app",
   credentials: true,
   methods:["GET" , "POST" , "PUT" , "DELETE","OPTIONS"] ,
   allowedHeaders:["Content-Type", "Authorization","Access-Control-Allow-Origin","X-Requested-With"]
