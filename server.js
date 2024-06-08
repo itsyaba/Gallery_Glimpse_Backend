@@ -25,16 +25,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+
 const corsOptions = {
-  origin: "https://gallery-glimpse-web.vercel.app",
+  origin: "*",
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin", "X-Requested-With"]
+  optionSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Preflight requests
-
 app.use(express.static(path.join(__dirname, "public")));
 
 if (process.env.NODE_ENV === "development") {
